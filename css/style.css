@@ -1,0 +1,31 @@
+/* css/style.css */
+:root {
+    --primary-color: #0056b3; /* Example blue */
+    --secondary-color: #007bff; /* Example lighter blue */
+    --text-color: #333;
+    --background-color: #f4f4f4;
+    --font-family-body: Arial, sans-serif;
+    --font-family-heading: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    font-family: var(--font-family-body);
+    margin: 0; /* Reset default margin */
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family-heading);
+    color: var(--primary-color);
+}
+
+/* Add more styling for links, buttons etc. */
+a {
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
