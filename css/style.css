@@ -19,12 +19,11 @@
     --button-bg-color: var(--primary-color);
     --button-text-color: #121212; /* Dark text for bright buttons */
 
-    /* Keep your existing font variables */
+    /* Fonts (Rajdhani for headings, Inter for body) */
     --font-family-body: 'Inter', sans-serif;
     --font-family-heading: 'Rajdhani', sans-serif;
 
-    /* Keep your existing spacing variables */
-    --spacing-unit: 1rem;
+    --spacing-unit: 1rem; /* Base unit for padding/margins */
 }
 
 /* --- Global Styles & Resets --- */
@@ -36,17 +35,18 @@ body {
     font-family: var(--font-family-body);
     margin: 0;
     padding: 0;
-    background-color: var(--background-light);
-    color: var(--text-color);
+    /* Background color is now handled by pseudo-elements, set to transparent */
+    background-color: transparent;
+    color: var(--text-color); /* Default text color from variables */
     line-height: 1.6;
     overflow-x: hidden; /* Prevent horizontal scroll */
     min-height: 100vh; /* Ensure body takes full viewport height */
     display: flex;
     flex-direction: column;
+    position: relative; /* Needed for z-index context with fixed pseudo-elements */
 }
 
-/* Modern Tech-Related Background */
-/* NEW: Blurred Background Image */
+/* Blurred Background Image (REPLACE URL with your actual image path!) */
 body::before {
     content: '';
     position: fixed;
@@ -54,8 +54,8 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    /* REPLACE THIS URL with the actual path to your image */
-    background-image: url('https://lmakweya9.github.io/img/pexels-markusspiske-1089438.jpg'); /* Example path */
+    /* !!! REPLACE THIS URL with the actual path to your image (e.g., 'https://lmakweya9.github.io/img/robotics-ml-bg.jpg') !!! */
+    background-image: url('https://lmakweya9.github.io/img/pexels-markusspiske-1089438.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -65,7 +65,7 @@ body::before {
     z-index: -2; /* Keep it behind everything else */
 }
 
-/* NEW: Semi-transparent Overlay for Readability */
+/* Semi-transparent Overlay for Readability */
 body::after {
     content: '';
     position: fixed;
@@ -77,47 +77,15 @@ body::after {
     z-index: -1; /* Above the blurred image, below content */
 }
 
-/* Adjust main body background to be transparent to let pseudo-elements show */
-body {
-    /* Keep existing styles like font-family, margin, padding, color, line-height, overflow-x, min-height, display, flex-direction */
-    background-color: transparent; /* Changed to transparent */
-    position: relative; /* Needed for z-index context with fixed elements */
-}
-
 /* Ensure content is above the overlay */
 header, section, footer {
     position: relative;
     z-index: 1;
 }
 
-/* Update section backgrounds to new dark colors */
-section:nth-of-type(odd) {
-    background-color: var(--background-light); /* New dark background */
-}
-
-section:nth-of-type(even) {
-    background-color: var(--background-dark); /* Slightly lighter dark background */
-}
-
-/* Update project card and skills category background */
-.project-card, #skills .skills-category {
-    background-color: var(--card-background); /* Darker grey for cards */
-}
-
-/* Ensure text colors are now light on dark backgrounds */
-h1, h2, h3, h4, h5, h6 {
-    color: var(--secondary-color); /* Bright Yellow for headings */
-}
-p, li {
-    color: var(--text-color); /* Light Gray for text */
-}
-.social-links a, .project-card .button {
-    color: var(--button-text-color); /* Dark text for bright buttons */
-}
-
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-family-heading);
-    color: var(--secondary-color);
+    color: var(--secondary-color); /* Bright Yellow for headings */
     margin-top: 2rem;
     margin-bottom: var(--spacing-unit);
     line-height: 1.2;
@@ -129,12 +97,12 @@ h3 { font-size: 1.8rem; }
 p { margin-bottom: var(--spacing-unit); }
 
 a {
-    color: var(--primary-color);
+    color: var(--primary-color); /* Deep Sky Blue for links */
     text-decoration: none;
     transition: color 0.3s ease;
 }
 a:hover {
-    color: var(--secondary-color);
+    color: var(--secondary-color); /* Bright Yellow on hover */
     text-decoration: underline;
 }
 
@@ -147,9 +115,9 @@ a:hover {
 
 /* --- Header & Navigation --- */
 header {
-    background-color: #ffffff;
+    background-color: var(--background-dark); /* Dark background for header */
     padding: 1rem 0;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Stronger shadow for dark mode */
 }
 
 nav ul {
@@ -162,7 +130,7 @@ nav ul {
 }
 
 nav ul li a {
-    color: var(--text-color);
+    color: var(--text-color); /* Light grey for nav links */
     font-weight: bold;
     font-family: var(--font-family-heading);
     padding: 0.5rem 0;
@@ -177,7 +145,7 @@ nav ul li a::after {
     display: block;
     margin-top: 5px;
     right: 0;
-    background: var(--primary-color);
+    background: var(--primary-color); /* Deep Sky Blue underline */
     transition: width 0.3s ease;
     -webkit-transition: width 0.3s ease;
 }
@@ -192,28 +160,10 @@ nav ul li a:hover::after {
 #hero {
     text-align: center;
     padding: 4rem 1.5rem;
-    background-color: var(--background-dark);
-    border-bottom: 1px solid var(--border-color);
+    background-color: transparent; /* Overlay handles background */
+    border-bottom: 1px solid var(--border-color); /* Darker border */
     position: relative;
     overflow: hidden;
-}
-
-#hero::before { /* Subtle background pattern for hero */
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: radial-gradient(circle, var(--primary-color) 1px, transparent 1px);
-    background-size: 20px 20px;
-    opacity: 0.05;
-    z-index: 0;
-}
-
-#hero > * {
-    position: relative;
-    z-index: 1; /* Ensure content is above background pattern */
 }
 
 #hero img {
@@ -221,42 +171,41 @@ nav ul li a:hover::after {
     height: 150px;
     border-radius: 50%;
     object-fit: cover;
-    border: 4px solid var(--primary-color);
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border: 4px solid var(--primary-color); /* Deep Sky Blue border */
+    box-shadow: 0 0 15px rgba(0,0,0,0.4); /* Stronger shadow */
     margin-bottom: 1.5rem;
 }
 
-/* In your styles.css, find the #hero h1 rule and update it */
 #hero h1 {
     font-size: 3.5rem;
-    color: var(--secondary-color);
+    color: var(--secondary-color); /* Bright Yellow for H1 */
     margin-bottom: 0.5rem;
-    /* NEW: Fade-in animation properties */
+    /* Fade-in animation for H1 */
     opacity: 0; /* Start invisible */
-    transform: translateY(20px); /* Start slightly below its final position */
-    animation: fadeInSlideUp 1.2s ease-out forwards; /* Apply the animation */
-    animation-delay: 0.5s; /* Delay before the animation starts (half a second) */
+    transform: translateY(20px); /* Start slightly below */
+    animation: fadeInSlideUp 1.2s ease-out forwards; /* Apply animation */
+    animation-delay: 0.5s; /* Delay before it starts */
 }
 
-/* Add these new keyframes rules to the very end of your styles.css file */
+/* Keyframes for H1 fade-in animation */
 @keyframes fadeInSlideUp {
     to {
-        opacity: 1; /* Fade to fully visible */
-        transform: translateY(0); /* Slide to its final position */
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
 #hero p {
     font-size: 1.25rem;
-    color: var(--light-text-color);
+    color: var(--text-color); /* Light gray for hero text */
     max-width: 800px;
     margin: 0 auto 2rem;
 }
 
 .social-links a {
     display: inline-block;
-    background-color: var(--primary-color);
-    color: #ffffff;
+    background-color: var(--primary-color); /* Deep Sky Blue button */
+    color: var(--button-text-color); /* Dark text on button */
     padding: 0.75rem 1.5rem;
     border-radius: 5px;
     font-weight: bold;
@@ -265,9 +214,9 @@ nav ul li a:hover::after {
 }
 
 .social-links a:hover {
-    background-color: var(--secondary-color);
+    background-color: var(--secondary-color); /* Bright Yellow on hover */
     transform: translateY(-3px);
-    text-decoration: none; /* Remove underline on hover for buttons */
+    text-decoration: none;
 }
 
 /* --- General Section Styles --- */
@@ -277,11 +226,11 @@ section {
 }
 
 section:nth-of-type(odd) {
-    background-color: var(--background-light);
+    background-color: var(--background-light); /* Dark background */
 }
 
 section:nth-of-type(even) {
-    background-color: var(--background-dark);
+    background-color: var(--background-dark); /* Slightly lighter dark background */
 }
 
 section h2 {
@@ -295,7 +244,7 @@ section h2::after {
     display: block;
     width: 50px;
     height: 3px;
-    background: var(--primary-color);
+    background: var(--primary-color); /* Deep Sky Blue underline */
     margin: 0.75rem auto 0;
 }
 
@@ -304,36 +253,36 @@ section h2::after {
     max-width: 800px;
     margin: 0 auto 1rem;
     font-size: 1.1rem;
-    color: var(--text-color);
-    text-align: left; /* Align text left within its container */
+    color: var(--text-color); /* Light gray text */
+    text-align: left;
 }
 #about strong {
-    color: var(--primary-color);
+    color: var(--primary-color); /* Deep Sky Blue for strong text */
 }
 
 /* --- Skills Section --- */
 #skills .skills-category {
-    background-color: var(--card-background);
-    border: 1px solid var(--border-color);
+    background-color: var(--card-background); /* Darker gray for skill boxes */
+    border: 1px solid var(--border-color); /* Darker border */
     border-radius: 8px;
     padding: 1.5rem;
     margin-bottom: 1.5rem;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    text-align: left; /* Align category content left */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* Stronger shadow */
+    text-align: left;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 #skills .skills-category:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5); /* Even stronger hover shadow */
 }
 
 #skills .skills-category h3 {
-    color: var(--primary-color);
+    color: var(--primary-color); /* Deep Sky Blue for skill category headings */
     margin-top: 0;
     margin-bottom: 1rem;
     font-size: 1.5rem;
-    border-bottom: 2px solid var(--border-color);
+    border-bottom: 2px solid var(--border-color); /* Darker border */
     padding-bottom: 0.5rem;
 }
 
@@ -343,19 +292,18 @@ section h2::after {
     margin: 0;
     display: flex;
     flex-wrap: wrap;
-    gap: 0.75rem; /* Space between skill items */
+    gap: 0.75rem;
 }
 
 #skills .skills-category ul li {
-    background-color: var(--background-dark);
-    color: var(--text-color);
+    background-color: var(--background-dark); /* Slightly lighter dark background for skill items */
+    color: var(--text-color); /* Light gray text */
     padding: 0.5rem 1rem;
     border-radius: 5px;
     font-size: 0.95rem;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--border-color); /* Darker border */
 }
 
-/* Flexbox for skill categories on larger screens */
 @media (min-width: 768px) {
     #skills {
         display: grid;
@@ -365,10 +313,9 @@ section h2::after {
         margin: 0 auto;
     }
     #skills .skills-category:last-child {
-        grid-column: span 2; /* Make last category span full width if needed */
+        grid-column: span 2;
     }
 }
-
 
 /* --- Projects Section --- */
 .project-grid {
@@ -380,13 +327,13 @@ section h2::after {
 }
 
 .project-card {
-    background-color: var(--card-background);
+    background-color: var(--card-background); /* Darker gray for project cards */
     border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3); /* Stronger shadow */
     padding: 2rem;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--border-color); /* Darker border */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -394,37 +341,37 @@ section h2::after {
 
 .project-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.5); /* Even stronger hover shadow */
 }
 
 .project-card h3 {
-    color: var(--secondary-color);
+    color: var(--secondary-color); /* Bright Yellow for project titles */
     font-size: 1.6rem;
     margin-top: 0;
     margin-bottom: 0.75rem;
 }
 
 .project-card p {
-    color: var(--light-text-color);
+    color: var(--text-color); /* Light gray text */
     font-size: 1rem;
     margin-bottom: 1.5rem;
-    flex-grow: 1; /* Allow description to take space */
+    flex-grow: 1;
 }
 
 .project-card .button {
     display: inline-block;
-    background-color: var(--primary-color);
-    color: var(--button-text-color);
+    background-color: var(--primary-color); /* Deep Sky Blue button */
+    color: var(--button-text-color); /* Dark text on button */
     padding: 0.75rem 1.5rem;
     border-radius: 5px;
     font-weight: bold;
     text-decoration: none;
     transition: background-color 0.3s ease, transform 0.2s ease;
-    margin: 0.5rem 0.5rem; /* Space between buttons */
+    margin: 0.5rem 0.5rem;
 }
 
 .project-card .button:hover {
-    background-color: var(--secondary-color);
+    background-color: var(--secondary-color); /* Bright Yellow on hover */
     transform: translateY(-2px);
     text-decoration: none;
 }
@@ -434,6 +381,7 @@ section h2::after {
     font-size: 1.1rem;
     max-width: 700px;
     margin: 0 auto 1rem;
+    color: var(--text-color); /* Light gray text */
 }
 
 #contact a {
@@ -446,42 +394,44 @@ section h2::after {
 
 /* --- Footer --- */
 footer {
-    background-color: var(--secondary-color);
-    color: #ffffff;
+    background-color: var(--background-dark); /* Darker background for footer */
+    color: var(--text-color); /* Light gray text */
     text-align: center;
     padding: 1.5rem 0;
     font-size: 0.9rem;
-    margin-top: auto; /* Push footer to bottom */
+    margin-top: auto;
+    border-top: 1px solid var(--border-color); /* Darker border */
 }
 
 /* --- Individual Project Page Styles (.project-detail) --- */
 .project-detail {
     padding: 4rem 1.5rem;
-    background-color: var(--background-light);
-    text-align: left; /* Align text left */
+    background-color: var(--background-light); /* Dark background for project detail */
+    text-align: left;
     max-width: 900px;
     margin: 2rem auto;
     border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4); /* Stronger shadow */
+    color: var(--text-color); /* Light gray text */
 }
 
 .project-detail h1 {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 1rem;
-    color: var(--primary-color);
+    color: var(--primary-color); /* Deep Sky Blue for project detail H1 */
 }
 
 .project-detail h2 {
     font-size: 1.8rem;
     margin-top: 3rem;
     margin-bottom: 1rem;
-    color: var(--secondary-color);
+    color: var(--secondary-color); /* Bright Yellow for project detail H2 */
 }
 
 .project-detail .project-tagline {
     font-style: italic;
-    color: var(--light-text-color);
+    color: var(--light-text-color); /* Slightly darker gray text */
     text-align: center;
     margin-bottom: 2rem;
     font-size: 1.1rem;
@@ -501,7 +451,7 @@ footer {
     height: auto;
     border-radius: 8px;
     margin: 2rem 0;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2); /* Stronger shadow */
 }
 
 .project-detail ul {
@@ -511,24 +461,63 @@ footer {
 }
 
 .project-detail pre {
-    background-color: #272727; /* Dark background for code */
-    color: #f8f8f2; /* Light text for code */
+    background-color: #000000; /* Pure black for code blocks */
+    color: #00e676; /* Neon green for code text */
     padding: 1rem;
     border-radius: 5px;
-    overflow-x: auto; /* Enable horizontal scroll for long lines */
+    overflow-x: auto;
     font-family: 'Fira Code', 'Cascadia Code', 'Consolas', monospace; /* Monospace font for code */
     font-size: 0.9rem;
     margin: 1.5rem 0;
+    border: 1px solid var(--primary-color); /* Border with primary color */
+    box-shadow: 0 0 10px rgba(0,191,255,0.3); /* Subtle glow effect */
 }
 
 .project-detail code {
     font-family: 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
-    background-color: var(--background-dark);
+    background-color: var(--background-dark); /* Dark background for inline code */
     padding: 0.2em 0.4em;
     border-radius: 3px;
     font-size: 0.9em;
+    color: var(--primary-color); /* Primary color for inline code */
 }
 
+/* Typing Effect Cursor */
+.blinking-cursor {
+    font-weight: 100;
+    font-size: 1.25em; /* Adjust to match your hero text size */
+    color: var(--primary-color); /* Deep Sky Blue cursor */
+    -webkit-animation: 1s blink step-end infinite;
+    -moz-animation: 1s blink step-end infinite;
+    -ms-animation: 1s blink step-end infinite;
+    -o-animation: 1s blink step-end infinite;
+    animation: 1s blink step-end infinite;
+}
+
+@keyframes blink {
+    from, to { opacity: 0; }
+    50% { opacity: 1; }
+}
+@-webkit-keyframes blink {
+    from, to { opacity: 0; }
+    50% { opacity: 1; }
+}
+
+/* Sticky Navigation (CSS for the JS functionality) */
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: var(--background-dark); /* Match header background */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* Stronger shadow */
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(0); }
+}
 
 /* --- Responsive Design --- */
 @media (max-width: 768px) {
@@ -561,33 +550,12 @@ footer {
         padding: 3rem 1rem;
     }
     #skills {
-        grid-template-columns: 1fr; /* Stack skill categories on small screens */
+        grid-template-columns: 1fr;
     }
     .project-detail {
         margin: 1rem;
         padding: 2rem 1rem;
     }
-}
-
-/* Typing Effect Cursor */
-.blinking-cursor {
-    font-weight: 100;
-    font-size: 1.25em; /* Adjust to match your hero text size */
-    color: var(--primary-color);
-    -webkit-animation: 1s blink step-end infinite;
-    -moz-animation: 1s blink step-end infinite;
-    -ms-animation: 1s blink step-end infinite;
-    -o-animation: 1s blink step-end infinite;
-    animation: 1s blink step-end infinite;
-}
-
-@keyframes blink {
-    from, to { opacity: 0; }
-    50% { opacity: 1; }
-}
-@-webkit-keyframes blink {
-    from, to { opacity: 0; }
-    50% { opacity: 1; }
 }
 
 /* For larger screens: better alignment for about section */
