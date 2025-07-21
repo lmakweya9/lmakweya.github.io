@@ -562,7 +562,8 @@ section h2::after {
     background-color: var(--primary-color); /* Deep Sky Blue on hover */
     color: var(--button-text-color); /* Dark text on hover */
     transform: translateY(-3px);
-    text-decoration: none;
+    text-shadow: 0 0 15px rgba(0, 191, 255, 0.5); /* Glowing effect on hover */
+    text-decoration: none; /* Ensure no underline on hover */
     box-shadow: 0 0 15px rgba(0, 191, 255, 0.5); /* Glowing effect on hover */
 }
 
