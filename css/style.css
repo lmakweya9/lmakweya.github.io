@@ -2,22 +2,29 @@
 
 /* --- Root Variables for Easy Customization --- */
 :root {
-    --primary-color: #007bff; /* A vibrant blue for accents and links */
-    --secondary-color: #0056b3; /* A darker blue for headings */
-    --accent-color: #28a745; /* A subtle green for success/highlighting */
-    --text-color: #343a40; /* Dark grey for body text */
-    --light-text-color: #6c757d; /* Lighter grey for secondary text */
-    --background-light: #f8f9fa; /* Light background for sections */
-    --background-dark: #e9ecef; /* Slightly darker background for alternating sections */
-    --card-background: #ffffff; /* White for project cards */
-    --border-color: #dee2e6; /* Light border for elements */
+    /* Modern Tech Dark Mode Palette */
+    --primary-color: #00BFFF; /* Deep Sky Blue for main accents, links, and buttons */
+    --secondary-color: #F1C40F; /* Bright Yellow for headings and secondary highlights */
+    --accent-color: #FF6B6B; /* Coral Red for other subtle highlights if needed */
+
+    --text-color: #E0E0E0; /* Light Gray for main body text, readable on dark backgrounds */
+    --light-text-color: #A0A0A0; /* Slightly darker gray for secondary text */
+    --white-text: #FFFFFF; /* Pure white for important text if desired */
+
+    --background-light: #121212; /* Very dark gray/black for main background */
+    --background-dark: #1F1F1F; /* Slightly lighter dark gray for alternating sections */
+    --card-background: #1A1A1A; /* Darker gray for project cards and skill boxes */
+    --border-color: #333333; /* Darker border for separation */
+
     --button-bg-color: var(--primary-color);
-    --button-text-color: #ffffff;
+    --button-text-color: #121212; /* Dark text for bright buttons */
 
-    --font-family-body: 'Inter', sans-serif; /* Clean, modern sans-serif for body text */
-    --font-family-heading: 'Rajdhani', sans-serif; /* Modern, slightly techy feel for headings */
+    /* Keep your existing font variables */
+    --font-family-body: 'Inter', sans-serif;
+    --font-family-heading: 'Rajdhani', sans-serif;
 
-    --spacing-unit: 1rem; /* Base unit for padding/margins */
+    /* Keep your existing spacing variables */
+    --spacing-unit: 1rem;
 }
 
 /* --- Global Styles & Resets --- */
@@ -39,6 +46,7 @@ body {
 }
 
 /* Modern Tech-Related Background */
+/* NEW: Blurred Background Image */
 body::before {
     content: '';
     position: fixed;
@@ -46,10 +54,65 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(#noiseFilter)" opacity="0.05"/></svg>'); /* Subtle digital noise */
+    /* REPLACE THIS URL with the actual path to your image */
+    background-image: url('https://lmakweya9.github.io/img/pexels-markusspiske-1089438.jpg'); /* Example path */
     background-size: cover;
-    opacity: 0.1; /* Adjust transparency */
-    z-index: -1; /* Keep it behind content */
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(8px); /* Adjust blur strength as needed */
+    -webkit-filter: blur(8px); /* For better browser compatibility */
+    transform: scale(1.02); /* To hide blur edges */
+    z-index: -2; /* Keep it behind everything else */
+}
+
+/* NEW: Semi-transparent Overlay for Readability */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(18, 18, 18, 0.85); /* Dark overlay matching background-light, adjust opacity */
+    z-index: -1; /* Above the blurred image, below content */
+}
+
+/* Adjust main body background to be transparent to let pseudo-elements show */
+body {
+    /* Keep existing styles like font-family, margin, padding, color, line-height, overflow-x, min-height, display, flex-direction */
+    background-color: transparent; /* Changed to transparent */
+    position: relative; /* Needed for z-index context with fixed elements */
+}
+
+/* Ensure content is above the overlay */
+header, section, footer {
+    position: relative;
+    z-index: 1;
+}
+
+/* Update section backgrounds to new dark colors */
+section:nth-of-type(odd) {
+    background-color: var(--background-light); /* New dark background */
+}
+
+section:nth-of-type(even) {
+    background-color: var(--background-dark); /* Slightly lighter dark background */
+}
+
+/* Update project card and skills category background */
+.project-card, #skills .skills-category {
+    background-color: var(--card-background); /* Darker grey for cards */
+}
+
+/* Ensure text colors are now light on dark backgrounds */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--secondary-color); /* Bright Yellow for headings */
+}
+p, li {
+    color: var(--text-color); /* Light Gray for text */
+}
+.social-links a, .project-card .button {
+    color: var(--button-text-color); /* Dark text for bright buttons */
 }
 
 h1, h2, h3, h4, h5, h6 {
