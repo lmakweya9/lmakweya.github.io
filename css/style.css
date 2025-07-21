@@ -309,19 +309,10 @@ section h2::after {
     text-align: left;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 
-    /* New: Enable horizontal scrolling for skill items within each category */
-    overflow-x: auto; /* Allow horizontal scrolling */
-    white-space: nowrap; /* Prevent items from wrapping */
-    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
-    scrollbar-width: none; /* Hide scrollbar for Firefox */
-    -ms-overflow-style: none; /* Hide scrollbar for IE/Edge */
+    /* Removed horizontal scrolling for skill items within each category */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    white-space: normal; /* Allow text wrapping */
 }
-
-/* Hide scrollbar for Chrome, Safari, Opera */
-#skills .skills-category::-webkit-scrollbar {
-    display: none;
-}
-
 
 #skills .skills-category:hover {
     transform: translateY(-5px);
@@ -343,7 +334,7 @@ section h2::after {
     padding: 0;
     margin: 0;
     display: flex; /* Keep flex display */
-    flex-wrap: nowrap; /* Crucial: Prevent wrapping */
+    flex-wrap: wrap; /* Crucial: Allow wrapping now */
     gap: 0.8rem; /* Slightly increased gap for better spacing */
     justify-content: flex-start; /* Align skill items to the start */
 }
@@ -359,7 +350,7 @@ section h2::after {
     align-items: center; /* Vertically center icon and text */
     gap: 0.6rem; /* Space between icon and text */
     transition: background-color 0.3s ease, color 0.3s ease;
-    flex-shrink: 0; /* Prevent items from shrinking */
+    flex-shrink: 1; /* Allow items to shrink if needed, default */
 }
 
 #skills .skills-category ul li .fas,
@@ -379,15 +370,15 @@ section h2::after {
 }
 
 @media (min-width: 768px) {
-    #skills {
+    #skills .skills-grid { /* Target the grid directly */
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 2rem;
-        max-width: 1000px;
+        max-width: 1000px; /* Keep max width for grid */
         margin: 0 auto;
     }
     #skills .skills-category:last-child {
-        grid-column: span 2;
+        grid-column: span 2; /* Still spans two columns for the last category */
     }
 }
 
@@ -695,7 +686,7 @@ footer {
     section {
         padding: 3rem 1rem;
     }
-    #skills {
+    #skills .skills-grid { /* Ensure grid for skills on smaller screens is 1 column */
         grid-template-columns: 1fr;
     }
     .project-detail {
