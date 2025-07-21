@@ -3,150 +3,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lesego Makweya - AI/ML Portfolio</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Lesego Makweya - Portfolio</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Rajdhani:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlalDLrpkjR7+M7V7+XWpQ9e1t/K3o+k/qXl+5n2l+2w2+2j2+2t2+2q2+2v2+2d2+2e2+2f2+2g2+2h2+2i2+2j2+2k2+2l2+2m2+2n2+2o2+2p2+2q2+2r2+2s2+2t2+2u2+2v2+2w2+2x2+2y2+2z2+" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
     <header>
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+        <div class="container">
+            <nav>
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <main>
-        <section id="hero">
-            <h1>Hi, I'm Lesego Makweya 👋</h1>
-            <p><span id="typed-text"></span><span class="blinking-cursor">|</span></p>
-            <div class="social-links">
-                <a href="https://github.com/lmakweya9" target="_blank">GitHub</a>
-                <a href="https://www.linkedin.com/in/lesego-makweya-5777a11b3/" target="_blank">LinkedIn</a>
-                </div>
-        </section>
+    <section id="hero" class="container">
+        <img src="https://lmakweya9.github.io/img/profile.jpg" alt="Lesego Makweya Profile Picture">
+        <h1>Hi, I'm Lesego Makweya 👋</h1>
+        <p>
+            <span id="typed-text"></span><span class="blinking-cursor">|</span>
+        </p>
+        <div class="social-links">
+            <a href="https://linkedin.com/in/lesego-makweya-5777a11b3/" target="_blank" aria-label="LinkedIn Profile"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <a href="https://github.com/lmakweya9" target="_blank" aria-label="GitHub Profile"><i class="fab fa-github"></i> GitHub</a>
+        </div>
+    </section>
 
-        <section id="about">
-            <h2>About Me</h2>
-            <p>
-                Hello! I'm <strong>Lesego Makweya</strong>, an aspiring AI/ML Engineer with a unique background in education and a passion for transforming data into intelligent solutions. My journey into the world of artificial intelligence and machine learning was sparked by a desire to leverage technology for problem-solving and innovation, building upon my foundational skills in software engineering.
-            </p>
-            <p>
-                I recently completed an intensive **AI/ML bootcamp at CAPACITI**, where I gained comprehensive, hands-on experience across the machine learning lifecycle. This program provided a strong foundation in key areas, including data preprocessing, model development, evaluation, and deployment, with a focus on practical applications.
-            </p>
-            <p>
-                My previous experience as a **Coding Facilitator** at WeThinkCode [cite: 8, 9] involved designing specialized lesson plans for computer science students [cite: 12] and advising a robotics club[cite: 11]. This role honed my ability to adapt teaching methods [cite: 13], foster technical skills, and support diverse learners[cite: 13], skills which I now bring to the collaborative and problem-solving nature of AI/ML development. I am a self-organized [cite: 57], independent [cite: 58] problem-solver [cite: 59], and a dedicated team player[cite: 60].
-            </p>
-            <p>
-                I am actively seeking **Junior AI/ML Engineer** or **Data Scientist** positions where I can contribute to innovative projects, collaborate with experienced professionals, and continue to grow my expertise in a dynamic environment. I am eager to apply my skills to real-world challenges and make a tangible impact.
-            </p>
-        </section>
+    <section id="about" class="container">
+        <h2>About Me</h2>
+        <p>I'm an industrious educator with a solid history of successfully stepping into diverse classroom environments and supporting students with solid lectures, discussions, and activities. I implement intervention strategies and discipline management techniques to enhance student success. I'm trained in attendance, assessment, and grading requirements.</p>
+        <p>My journey into tech began with a passion for problem-solving and a fascination with how technology can transform industries. I've gained hands-on experience in areas like web development, data structures, and algorithms, and I'm particularly enthusiastic about the potential of AI and Machine Learning.</p>
+        <p>I thrive in environments that encourage continuous learning and practical application of knowledge. Whether it's crafting clean code or optimizing complex systems, I'm always looking for innovative ways to contribute and grow.</p>
+        <p>Outside of coding, I enjoy exploring new technologies and staying updated with the latest advancements in AI and ML. I believe in a collaborative approach to challenges and am always eager to connect with fellow enthusiasts and professionals.</p>
+        <p>For a detailed overview of my professional journey, please refer to my <a href="https://lmakweya9.github.io/Lesego%20CV.docx" target="_blank">CV (Download)</a>.</p>
+    </section>
 
-        <section id="skills">
-            <h2>Technical Skills & Competencies</h2>
+    <section id="skills" class="container">
+        <h2>Skills</h2>
+        <div class="skills-grid">
             <div class="skills-category">
                 <h3>Programming Languages</h3>
                 <ul>
-                    <li>Python (NumPy, Pandas, Scikit-learn)</li>
-                    <li>JavaScript [cite: 40]</li>
-                    <li>HTML/CSS [cite: 29, 41]</li>
-                    <li>Node.js [cite: 29]</li>
-                    <li>SQL [cite: 49]</li>
+                    <li>Python</li>
+                    <li>JavaScript</li>
+                    <li>Java</li>
+                    <li>C</li>
                 </ul>
             </div>
             <div class="skills-category">
-                <h3>AI/ML Frameworks & Libraries</h3>
+                <h3>Front-end Development</h3>
                 <ul>
-                    <li>TensorFlow / Keras</li>
-                    <li>PyTorch (mention if you've used it, otherwise remove)</li>
-                    <li>Scikit-learn</li>
-                    <li>NLTK / SpaCy (for NLP, if applicable)</li>
-                    <li>BeautifulSoup (for Web Scraping) [cite: 34]</li>
+                    <li>HTML5</li>
+                    <li>CSS3</li>
+                    <li>React</li>
+                    <li>Responsive Web Design</li>
                 </ul>
             </div>
             <div class="skills-category">
-                <h3>Tools & Platforms</h3>
+                <h3>Data & AI/ML</h3>
                 <ul>
-                    <li>Git / GitHub [cite: 3]</li>
-                    <li>Jupyter Notebooks</li>
-                    <li>Docker (if applicable)</li>
-                    <li>AWS / Azure / GCP (if applicable)</li>
-                    <li>Stripe (for e-commerce) [cite: 29]</li>
+                    <li>Machine Learning (basics)</li>
+                    <li>Data Structures & Algorithms</li>
+                    <li>SQL (Database Management)</li>
+                    <li>Web Scraping (BeautifulSoup)</li>
                 </ul>
             </div>
             <div class="skills-category">
-                <h3>Concepts & Methodologies</h3>
+                <h3>Tools & Concepts</h3>
                 <ul>
-                    <li>Supervised/Unsupervised Learning</li>
-                    <li>Regression, Classification</li>
-                    <li>Natural Language Processing (NLP)</li>
-                    <li>Computer Vision (if applicable)</li>
-                    <li>Model Evaluation & Tuning</li>
-                    <li>Data Structures and Algorithms [cite: 46]</li>
-                    <li>Object-Oriented Programming [cite: 48]</li>
+                    <li>Git/GitHub</li>
+                    <li>Object-Oriented Programming</li>
+                    <li>UX Design Principles</li>
+                    <li>Clean Code Advocacy</li>
+                    <li>Problem Solving</li>
                 </ul>
             </div>
-            <div class="skills-category">
-                <h3>Front-end & UX</h3>
-                <ul>
-                    <li>ReactJS [cite: 21, 29]</li>
-                    <li>Front-end Development [cite: 53]</li>
-                    <li>UX Design Implementation [cite: 54]</li>
-                    <li>Clean Code Advocacy [cite: 55]</li>
-                    <li>Responsive Web Design [cite: 41]</li>
-                </ul>
-            </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="projects">
-            <h2>Featured Projects</h2>
-            <div class="project-grid">
-                <div class="project-card">
-                    <h3>AI Assistant</h3>
-                    <p>An AI Assistant is an intelligent system integrated into a project to streamline workflows, enhance decision-making, and optimize efficiency through task automation and data-driven insights.</p>
-                    <a href="projects/ai-assistant.html">Learn More & Demo</a>
-                    <a href="https://www.figma.com/proto/VN770C94GPRfo7zsD96Dj1/EduTech--Community-?node-id=1-2&t=SB0g2RDZC26v0dyC-1&starting-point-node-id=1%3A2" target="_blank">GitHub Repo</a>
-                </div>
-                <div class="project-card">
-                    <h3>E-commerce website</h3>
-                    <p>An e-commerce website is a digital platform that enables businesses to showcase and sell products or services online, allowing customers to browse, purchase, and complete transactions over the internet.</p>
-                    <a href="projects/e-commerce-website.html">Learn More & Demo</a>
-                    <a href="https://github.com/lmakweya9/e-commerce-website" target="_blank">GitHub Repo</a>
-                </div>
-                <div class="project-card">
-                    <h3>Smart Health Assistant</h3>
-                    <p>An AI Smart Health Assistant uses artificial intelligence to provide personalized health monitoring and support.</p>
-                    <a href="projects/smart-health-assistant.html">Learn More & Demo</a>
-                    <a href="https://smart-health-assistant-68gx.onrender.com/" target="_blank">GitHub Repo</a>
-                </div>
-                <div class="project-card">
-                    <h3>Weather App</h3>
-                    <p>A weather app provides real-time forecasts, temperature updates, and weather alerts based on your location.</p>
-                    <a href="https://github.com/lmakweya9/weather-app" target="_blank">View in GitHub [cite: 33]</a>
-                </div>
+    <section id="projects" class="container">
+        <h2>Projects</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <h3>Weather App</h3>
+                <p>A simple web application that fetches and displays current weather data for a given city/town using a public API.</p>
+                <div class="project-links">
+                    <a href="https://github.com/lmakweya9/weather-app" target="_blank" class="button">View on GitHub</a>
+                    </div>
             </div>
-        </section>
+            <div class="project-card">
+                <h3>To-Do List (React)</h3>
+                <p>A dynamic and interactive To-Do list application built with React, featuring adding, editing, and deleting tasks with local storage persistence.</p>
+                <div class="project-links">
+                    <a href="https://github.com/lmakweya9/react-todo-list" target="_blank" class="button">View on GitHub</a>
+                    </div>
+            </div>
+            <div class="project-card">
+                <h3>Simple Web Scraper</h3>
+                <p>A Python-based web scraper using BeautifulSoup to extract data from target websites, demonstrating data parsing and retrieval skills.</p>
+                <div class="project-links">
+                    <a href="https://github.com/lmakweya9/Python-web-scraper" target="_blank" class="button">View on GitHub</a>
+                    </div>
+            </div>
+        </div>
+    </section>
 
-        <section id="contact">
-            <h2>Get in Touch</h2>
-            <p>I'm actively seeking AI/ML Engineer and Data Scientist roles. Feel free to connect!</p>
-            <p>Email: <a href="mailto:lmakweya@student.wethinkcode.co.za">lmakweya@student.wethinkcode.co.za</a> [cite: 2]</p>
-            <p>Phone: +27746690001 [cite: 2]</p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/lesego-makweya-5777a11b3/" target="_blank">linkedin.com/in/lesego-makweya-5777a11b3/</a> [cite: 3]</p>
-            <p>GitHub: <a href="https://github.com/lmakweya9" target="_blank">github.com/lmakweya9</a> [cite: 3]</p>
-            <p><a href="documents/Lesego CV.docx" download class="button">Download My CV</a></p>
-        </section>
-    </main>
+    <section id="contact" class="container">
+        <h2>Get in Touch</h2>
+        <div class="contact-content">
+            <p>I'm always open to new opportunities, collaborations, or just a friendly chat about all things tech and AI. Feel free to reach out!</p>
+
+            <form action="https://formspree.io/f/mblkdeyy" method="POST" class="contact-form">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="_replyto" required> </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="6" required></textarea>
+                </div>
+                <button type="submit" class="button">Send Message</button>
+            </form>
+
+            <div class="social-links contact-social-links">
+                <a href="https://linkedin.com/in/lesego-makweya-5777a11b3/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/lmakweya9" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                </div>
+        </div>
+    </section>
 
     <footer>
-        <p>&copy; 2025 Lesego Makweya. All rights reserved.</p>
+        <div class="container">
+            <p>&copy; 2024 Lesego Makweya. All rights reserved.</p>
+        </div>
     </footer>
 
     <script src="js/script.js"></script>
+
 </body>
 </html>

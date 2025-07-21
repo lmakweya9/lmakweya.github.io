@@ -156,6 +156,22 @@ nav ul li a:hover::after {
     background: var(--primary-color);
 }
 
+/* Sticky Navigation (CSS for the JS functionality) */
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: var(--background-dark); /* Match header background */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* Stronger shadow */
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(0); }
+}
+
 /* --- Hero Section --- */
 #hero {
     text-align: center;
@@ -218,6 +234,28 @@ nav ul li a:hover::after {
     transform: translateY(-3px);
     text-decoration: none;
 }
+
+/* Typing Effect Cursor */
+.blinking-cursor {
+    font-weight: 100;
+    font-size: 1.25em; /* Adjust to match your hero text size */
+    color: var(--primary-color); /* Deep Sky Blue cursor */
+    -webkit-animation: 1s blink step-end infinite;
+    -moz-animation: 1s blink step-end infinite;
+    -ms-animation: 1s blink step-end infinite;
+    -o-animation: 1s blink step-end infinite;
+    animation: 1s blink step-end infinite;
+}
+
+@keyframes blink {
+    from, to { opacity: 0; }
+    50% { opacity: 1; }
+}
+@-webkit-keyframes blink {
+    from, to { opacity: 0; }
+    50% { opacity: 1; }
+}
+
 
 /* --- General Section Styles --- */
 section {
@@ -392,6 +430,115 @@ section h2::after {
     margin-top: 2rem;
 }
 
+/* --- Contact Form Styles --- */
+#contact .contact-content {
+    max-width: 700px; /* Limit form width */
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: var(--card-background); /* Use card background for the form container */
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    border: 1px solid var(--border-color);
+    text-align: left; /* Align form labels/inputs left */
+}
+
+#contact .contact-content p {
+    text-align: center; /* Center the introductory text */
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    color: var(--text-color);
+}
+
+.contact-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: var(--secondary-color); /* Bright Yellow for labels */
+    font-family: var(--font-family-heading);
+    font-size: 1.1rem;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid var(--border-color); /* Darker border */
+    border-radius: 5px;
+    background-color: var(--background-dark); /* Slightly lighter dark background for inputs */
+    color: var(--text-color); /* Light gray input text */
+    font-family: var(--font-family-body);
+    font-size: 1rem;
+    box-sizing: border-box; /* Include padding in width */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form input[type="text"]:focus,
+.contact-form input[type="email"]:focus,
+.contact-form textarea:focus {
+    border-color: var(--primary-color); /* Deep Sky Blue on focus */
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 191, 255, 0.3); /* Soft glow on focus */
+}
+
+.contact-form textarea {
+    resize: vertical; /* Allow vertical resizing */
+    min-height: 120px;
+}
+
+.contact-form button[type="submit"] {
+    width: auto; /* Button doesn't take full width */
+    margin: 0 auto; /* Center the button */
+    display: block;
+    padding: 1rem 2.5rem; /* Larger padding for button */
+    font-size: 1.1rem;
+    background-color: var(--button-bg-color);
+    color: var(--button-text-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.contact-form button[type="submit"]:hover {
+    background-color: var(--secondary-color); /* Bright Yellow on hover */
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* Adjust social links specifically for the contact section */
+.contact-social-links {
+    margin-top: 2.5rem; /* Space between form and social links */
+    text-align: center;
+}
+
+.contact-social-links a {
+    background-color: var(--background-dark); /* Darker background for social icons */
+    color: var(--text-color); /* Light gray icon color */
+    border-radius: 50%; /* Make them circular */
+    width: 45px;
+    height: 45px;
+    display: inline-flex; /* Use flexbox for centering icon */
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    border: 1px solid var(--border-color); /* Add border */
+}
+
+.contact-social-links a:hover {
+    background-color: var(--primary-color); /* Deep Sky Blue on hover */
+    color: var(--button-text-color); /* Dark text on hover */
+    transform: translateY(-3px);
+    text-decoration: none;
+    box-shadow: 0 0 15px rgba(0, 191, 255, 0.5); /* Glowing effect on hover */
+}
+
 /* --- Footer --- */
 footer {
     background-color: var(--background-dark); /* Darker background for footer */
@@ -480,43 +627,6 @@ footer {
     border-radius: 3px;
     font-size: 0.9em;
     color: var(--primary-color); /* Primary color for inline code */
-}
-
-/* Typing Effect Cursor */
-.blinking-cursor {
-    font-weight: 100;
-    font-size: 1.25em; /* Adjust to match your hero text size */
-    color: var(--primary-color); /* Deep Sky Blue cursor */
-    -webkit-animation: 1s blink step-end infinite;
-    -moz-animation: 1s blink step-end infinite;
-    -ms-animation: 1s blink step-end infinite;
-    -o-animation: 1s blink step-end infinite;
-    animation: 1s blink step-end infinite;
-}
-
-@keyframes blink {
-    from, to { opacity: 0; }
-    50% { opacity: 1; }
-}
-@-webkit-keyframes blink {
-    from, to { opacity: 0; }
-    50% { opacity: 1; }
-}
-
-/* Sticky Navigation (CSS for the JS functionality) */
-.sticky {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    background-color: var(--background-dark); /* Match header background */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* Stronger shadow */
-    animation: slideDown 0.3s ease-out;
-}
-
-@keyframes slideDown {
-    from { transform: translateY(-100%); }
-    to { transform: translateY(0); }
 }
 
 /* --- Responsive Design --- */
