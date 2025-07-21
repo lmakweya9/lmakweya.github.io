@@ -39,7 +39,7 @@ body {
     background-color: transparent;
     color: var(--text-color); /* Default text color from variables */
     line-height: 1.6;
-    overflow-x: hidden; /* Prevent horizontal scroll */
+    overflow-x: hidden; /* Prevent horizontal scroll for the main body */
     min-height: 100vh; /* Ensure body takes full viewport height */
     display: flex;
     flex-direction: column;
@@ -308,7 +308,20 @@ section h2::after {
     box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* Stronger shadow */
     text-align: left;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    /* New: Enable horizontal scrolling for skill items within each category */
+    overflow-x: auto; /* Allow horizontal scrolling */
+    white-space: nowrap; /* Prevent items from wrapping */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
+    -ms-overflow-style: none; /* Hide scrollbar for IE/Edge */
 }
+
+/* Hide scrollbar for Chrome, Safari, Opera */
+#skills .skills-category::-webkit-scrollbar {
+    display: none;
+}
+
 
 #skills .skills-category:hover {
     transform: translateY(-5px);
@@ -322,14 +335,15 @@ section h2::after {
     font-size: 1.5rem;
     border-bottom: 2px solid var(--border-color); /* Darker border */
     padding-bottom: 0.5rem;
+    white-space: normal; /* Allow heading to wrap if needed */
 }
 
 #skills .skills-category ul {
     list-style: none;
     padding: 0;
     margin: 0;
-    display: flex;
-    flex-wrap: wrap;
+    display: flex; /* Keep flex display */
+    flex-wrap: nowrap; /* Crucial: Prevent wrapping */
     gap: 0.8rem; /* Slightly increased gap for better spacing */
     justify-content: flex-start; /* Align skill items to the start */
 }
@@ -345,6 +359,7 @@ section h2::after {
     align-items: center; /* Vertically center icon and text */
     gap: 0.6rem; /* Space between icon and text */
     transition: background-color 0.3s ease, color 0.3s ease;
+    flex-shrink: 0; /* Prevent items from shrinking */
 }
 
 #skills .skills-category ul li .fas,
@@ -412,7 +427,7 @@ section h2::after {
 
 .project-card p {
     color: var(--text-color); /* Light gray text */
-    font-size: 1rem;
+    font-size: 1.rem;
     margin-bottom: 1.5rem;
     flex-grow: 1;
 }
